@@ -1,6 +1,6 @@
-title:            Site Title
-description:      Describe your website here.
-disqus_shortname: 
+title:            GeReV's Thoughts
+description:      The online portfolio of Amir Grozki
+disqus_shortname: gerev
 #Comment out url when working locally to resolve base urls correctly
 url:              http://gerev.github.io
 
