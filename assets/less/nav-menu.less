@@ -1,0 +1,258 @@
+
+
+.nav-menuwrapper {
+	background: @base-color;
+	width: @menu-width;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	
+	box-shadow: 5px 0 10px fade(@black,35);
+	
+	-webkit-transform: translateX(-@menu-width);
+	-moz-transform:    translateX(-@menu-width);
+	transform:         translateX(-@menu-width);
+	
+	-webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+	
+	// @media @medium {
+		// max-width: 175px;
+		// top: 25px;
+		// left: 25px;
+	// }
+	
+	
+	
+	button {
+		top: 0;
+		left: 0;
+		background: @comp-color;
+		border: none;
+		display: none;
+		width: 48px;
+		height: 45px;
+		text-indent: -900em;
+		overflow: hidden;
+		position: relative;
+		cursor: pointer;
+		outline: none;
+		.border-radius(0,3px,0,0);
+		box-shadow: 0 12px 24px fade(@black,35);
+		
+		@media @medium {
+			.border-radius(3px,3px,3px,3px);
+			
+			display: block;
+		}
+	}
+	
+	button:after {
+		content: '';
+		position: absolute;
+		width: 68%;
+		height: 5px;
+		background: @white;
+		top: 10px;
+		left: 16%;
+		box-shadow: 
+			0 10px 0 @white, 
+			0 20px 0 @white;
+	}
+	
+	button.nav-active {
+		display: none;
+	}
+	ul {
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		position: relative;
+		h4 {
+			margin:0;
+			padding: 15px 20px 0;
+			color: fade(@white,90);
+		}
+		p {
+			margin: 0;
+			padding: 15px 20px;
+			.font-rem(12);
+			color: fade(@white,80);
+			a {
+				display: inline;
+				padding: 0;
+				.font-rem(12);
+			}
+		}
+		i {
+			display: inline-block;
+			width: 2em;
+		}
+		a {
+			display: block;
+			position: relative;
+			padding: 10px 20px;
+			.font-rem(14);
+			line-height: 20px;
+			font-weight: 300;
+			color: @white;
+			outline: none;
+		}
+		.nav-back > a {
+			padding-left: 30px;
+			background: rgba(0,0,0,0.2);
+		}
+		.nav-back:after,
+		> a:not(:only-child):after {
+			position: absolute;
+			top: 0;
+			line-height: 50px;
+			font-family: 'fontawesome';
+			color: @white;
+			speak: none;
+			-webkit-font-smoothing: antialiased;
+			content: "\f105";
+		}
+		.nav-back:after {
+			left: 10px;
+			color: rgba(212,204,198,0.5);
+			-webkit-transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+		> a:after {
+			right: 10px;
+			color: rgba(0,0,0,0.15);
+		}
+	}
+	.nav-menu {
+		margin: 0;
+		width: 100%;
+		max-width: 400px;
+	}
+	.nav-submenu {
+	  margin: 15px 0;
+  }
+	.nav-menu.nav-menu-toggle {
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+}
+.nav-menuwrapper.nav-menuwrapper-active {
+  -webkit-transform: translateX(0px);
+  -moz-transform:    translateX(0px);
+  transform:         translateX(0px);  
+}
+/* 
+When a submenu is openend, we will hide all li siblings.
+For that we give a class to the parent menu called "nav-subview".
+We also hide the submenu link. 
+The opened submenu will get the class "nav-subviewopen".
+All this is done for any sub-level being entered.
+*/
+.nav-menu.nav-subview li,
+.nav-menu.nav-subview li.nav-subviewopen > a,
+.nav-menu.nav-subview li.nav-subview > a {
+	display: none;
+}
+.nav-menu.nav-subview li.nav-subview,
+.nav-menu.nav-subview li.nav-subview .nav-submenu,
+.nav-menu.nav-subview li.nav-subviewopen,
+.nav-menu.nav-subview li.nav-subviewopen > .nav-submenu,
+.nav-menu.nav-subview li.nav-subviewopen > .nav-submenu > li {
+	display: block;
+}
+/* Animation classes for moving out and in */
+.nav-menuwrapper.nav-animate-out {
+	-webkit-animation: MenuAnimOut 0.8s ease;
+	-moz-animation: MenuAnimOut 0.8s ease;
+	animation: MenuAnimOut 0.8s ease;
+}
+@-webkit-keyframes MenuAnimOut {
+	100% {
+		-webkit-transform: translateX(-@menu-width);
+		opacity: 0;
+	}
+}
+@-moz-keyframes MenuAnimOut {
+	100% {
+		-moz-transform: translateX(-@menu-width);
+		opacity: 0;
+	}
+}
+@keyframes MenuAnimOut {
+	100% {
+		transform: translateX(-@menu-width);
+		opacity: 0;
+	}
+}
+.nav-menuwrapper.nav-animate-in {
+	-webkit-animation: MenuAnimIn 0.8s ease;
+	-moz-animation: MenuAnimIn 0.8s ease;
+	animation: MenuAnimIn 0.8s ease;
+}
+@-webkit-keyframes MenuAnimIn {
+	0% {
+		-webkit-transform: translateX(-@menu-width);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateX(0px);
+		opacity: 1;
+	}
+}
+@-moz-keyframes MenuAnimIn {
+	0% {
+		-moz-transform: translateX(-@menu-width);
+		opacity: 0;
+	}
+	100% {
+		-moz-transform: translateX(0px);
+		opacity: 1;
+	}
+}
+@keyframes MenuAnimIn {
+	0% {
+		transform: translateX(-@menu-width);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+/* No Touch Fallback */
+.no-touch .nav-menuwrapper li a:hover {
+	background: rgba(255,248,213,0.1);
+}
+/* No JS Fallback */
+.no-js {
+	.nav-trigger {
+		display: none;
+	}
+	.nav-menuwrapper .nav-menu {
+		position: relative;
+		opacity: 1;
+		pointer-events: auto;
+		-webkit-transform: none;
+		-moz-transform: none;
+		transform: none;
+	}
+	.nav-menuwrapper li .nav-submenu {
+		display: block;
+	}
+	.nav-menuwrapper li.nav-back {
+		display: none;
+	}
+	.nav-menuwrapper li > a:not(:only-child) {
+		background: rgba(0,0,0,0.1);
+	}
+	.nav-menuwrapper li > a:not(:only-child):after {
+		content: '';
+	}
+}

@@ -2,19 +2,19 @@ title:            Site Title
 description:      Describe your website here.
 disqus_shortname: 
 #Comment out url when working locally to resolve base urls correctly
-url:              http://your-website.com
+#url:              http://your-website.com
 
 # Owner/author information
 owner:
-  name:           Your Name
-  avatar:         avatar.jpg
+  name:           Amir Grozki
+  gravatar:       http://gravatar.com/avatar/23183b96face3192f8c150d2d70dc529?s=300
   bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  email:          
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
   facebook:       
-  github:         
-  stackexchange:  
+  github:         GeReV
+  stackexchange:  http://stackexchange.com/users/87597/gerev
   linkedin:       
   instagram:      
   flickr:         
@@ -31,17 +31,12 @@ bing_verify:
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: Theme Setup
-    url: /theme-setup
-  - title: External Link
-    url: http://mademistakes.com
-    external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
+timezone:    Asia/Jerusalem
 future:      true
 pygments:    true
-markdown:    kramdown
+markdown:    redcarpet
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title
