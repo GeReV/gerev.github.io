@@ -66,18 +66,19 @@ svg:not(:root) {
   margin-bottom: 20px;
   padding: 8px 20px;
   .font-rem(14);
-  background-color: @primary;
+  background-color: lighten(@base-color, 10);
   color: @white;
   border-width: 2px !important;
   border-style: solid !important;
-  border-color: @primary;
+  border-color: lighten(@base-color, 10);
   .rounded(3px);
   &:visited {
     color: @white;
   }
   &:hover {
     background-color: @white;
-    color: @primary;
+    border-color: @white;
+    color: @base-color;
   }
 }
 .btn-success {

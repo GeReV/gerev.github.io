@@ -117,7 +117,7 @@ body {
 		display: inline-block;
 		margin: 4px;
 		padding: 2px 6px;
-		background-color: lighten(@base-color,60);
+		background-color: lighten(@base-color,10);
 		color: @white;
 		.rounded(3px);
 		color: @white;
@@ -126,11 +126,11 @@ body {
 			.font-rem(10);
 		}
 		&:hover {
-			background-color: lighten(@base-color,50);
+			background-color: lighten(@base-color,20);
 		}
 		&:active {
 			.translate(0, 1px);
-	        .box-shadow(0 0 1px fade(@base-color, 20));
+	        .box-shadow(0 0 1px fade(@base-color, 15));
 		}
 	}
 }
@@ -140,7 +140,7 @@ body {
 		margin: 40px 2px 20px 2px;
 		padding: 10px 15px;
 		background-color: @base-color;
-		box-shadow: 0 0 0 1px fade(@border-color,10), 0 6px 12px fade(@black,10);
+		border: 1px solid fade(@black, 50);
 		.rounded(3px);
 		@media @medium {
 			margin-left: 10px;
@@ -148,7 +148,7 @@ body {
 			padding: 20px 30px;
 		}
 		@media @large {
-			max-width: 800px;
+			max-width: 960px;
 			margin: 50px auto 30px auto;
 			padding: 50px 80px;
 			> p:first-child {
@@ -165,7 +165,7 @@ body {
 		box-shadow: 0 0 0 1px fade(@border-color,10), 0 6px 12px fade(@black,10);
 		.rounded(3px);
 		@media @large {
-			max-width: 800px;
+			max-width: 960px;
 			padding: 50px 80px;
 			margin: 0 auto 30px auto;
 		}
@@ -202,15 +202,15 @@ body {
 	position: relative;
 	margin: 40px 2px 20px 2px;
 	padding: 40px 15px 25px;
-	background-color: @white;
-	box-shadow: 0 0 0 1px fade(@border-color,10), 0 6px 12px fade(@black,10);
+	background-color: @base-color;
+	border: 1px solid fade(@black, 50);
 	.rounded(3px);
 	@media @medium {
 		margin: 50px 10px 20px 10px;
 		padding: 50px 40px 25px;
 	}
 	@media @large {
-		max-width: 800px;
+		max-width: 960px;
 		padding: 50px 80px;
 		margin: 60px auto;
 	}

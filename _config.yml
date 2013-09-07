@@ -2,7 +2,7 @@ title:            Site Title
 description:      Describe your website here.
 disqus_shortname: 
 #Comment out url when working locally to resolve base urls correctly
-#url:              http://your-website.com
+url:              http://gerev.github.io
 
 # Owner/author information
 owner:
@@ -15,16 +15,16 @@ owner:
   facebook:       
   github:         GeReV
   stackexchange:  http://stackexchange.com/users/87597/gerev
-  linkedin:       
+  linkedin:       http://il.linkedin.com/pub/amir-grozki/66/230/61/
   instagram:      
   flickr:         
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:   
+  google_plus:   https://plus.google.com/108325265687707061309
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   
-google_verify:      
+google_analytics:   UA-42446296-2  
+google_verify:      AdLSRYU8PODllGkJlyIdIZAXAOo_s0j1T8c3loD9llg
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
 

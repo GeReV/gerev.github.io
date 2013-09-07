@@ -5,7 +5,7 @@
       <img src="{% if site.owner.gravatar %}{{ site.owner.gravatar }}{% else %}{{ site.url }}/images/{{ site.owner.avatar }}{% endif %}" alt="{{ site.owner.name }} photo" class="author-photo">
       <h4>{{ site.owner.name }}</h4>
       <p>{{ site.owner.bio }}</p>
-      <li><a href="{{ site.url }}/about/">Learn More</a></li>
+      <li><a href="{{ site.url }}/about/">About</a></li>
     </li>
 		<li>
 			<ul class="nav-submenu">
@@ -22,7 +22,7 @@
 					<a href="{{ site.owner.google_plus }}"><i class="icon-google-plus"></i> Google+</a>
 				</li>{% endif %}
 				{% if site.owner.linkedin %}<li>
-					<a href="http://linkedin.com/in/{{ site.owner.linkedin }}"><i class="icon-linkedin"></i> LinkedIn</a>
+					<a href="{{ site.owner.linkedin }}"><i class="icon-linkedin"></i> LinkedIn</a>
 				</li>{% endif %}
 				{% if site.owner.github %}<li>
 					<a href="http://github.com/{{ site.owner.github }}"><i class="icon-github"></i> GitHub</a>
