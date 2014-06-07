@@ -17,7 +17,7 @@ tablet.
 
 The code for this is available in my GitHub repository:
 
-https://github.com/GeReV/adonit_linux
+[https://github.com/GeReV/adonit_linux](https://github.com/GeReV/adonit_linux)
 
 ### To make a long story short
 
@@ -53,7 +53,7 @@ managed to find a certain UUID related to the device -
 `dcd68980-aadc-11e1-a22a-0002a5d5c51b`.
 
 He just Googled the UUID and came up with a ready-made C library with a demo for 
-this exact brand of stylus - [libgato](https://gitorious.org/gato) by [Javier S.  
+this exact brand of stylus - [*libgato*](https://gitorious.org/gato) by [Javier 
 Pedro](http://javispedro.com). It was like getting everything served on a silver 
 platter.
 
@@ -80,8 +80,8 @@ After some more playing, I discovered the stylus reports a bunch of 16-bit
 integers in each update, but only one changed whenever I tapped the stylus' 
 buttons and pressed its tip. A bit of guesswork and it turns out the device 
 encodes its two buttons as the first 2 bits (bit 0 and bit 1), and the pressure 
-as the 11 significant bits. (i.e. XXXXXXXXXXX000BA, where X's are for pressure, 
-B is for button 1 and A is for button 0).
+as the 11 significant bits. (i.e. `XXXXXXXXXXX000BA`, where `X`'s are for 
+pressure, `B` is for button 1 and `A` is for button 0).
 
 A little bit manipulation and I can report the specific events.
 
@@ -90,7 +90,7 @@ This was the jumpstart I needed to get things moving.
 ### Creating the input device
 
 My colleague introduced my to 
-*[uinput](http://thiemonge.org/getting-started-with-uinput)*, the linux 
+[*uinput*](http://thiemonge.org/getting-started-with-uinput), the Linux 
 user-level input subsystem. This basically let me create an input device from my 
 code and get a file representing my newly-invented "Cintiq".
 
@@ -99,12 +99,12 @@ int fd = open("/dev/uinput", O_RDWR);
 ~~~
 
 By opening the `/dev/uinput` file for writing, you get an event file under 
-`/dev/input`, this file now represents your new device.
+`/dev/input`. This file now represents your new device.
 
 After some research, I found 
-*[wdaemon](http://sourceforge.net/apps/mediawiki/linuxwacom/index.php?title=Wdaemon)*.  
-Part of the *[The Linux Wacom 
-Project](http://sourceforge.net/apps/mediawiki/linuxwacom/index.php?title=Main_Page)*, 
+[*wdaemon*](http://sourceforge.net/apps/mediawiki/linuxwacom/index.php?title=Wdaemon).  
+Part of the [*The Linux Wacom 
+Project*](http://sourceforge.net/apps/mediawiki/linuxwacom/index.php?title=Main_Page), 
 which was adapted as the official driver for Wacom devices. The cool difference 
 was that *wdaemon* did everything on the user-level instead of running from the 
 kernel. This gave me the basis for the final result.
@@ -129,7 +129,7 @@ with the pointer.
 God-damnit GIMP. God. Damnit. I gave up again.
 
 A while later I asked a [question on 
-StackOverflow.com](http://stackoverflow.com/questions/23149093/create-a-wacom-like-linux-uinput-device-for-work-with-touchscreen-and-pen).  
+StackOverflow.com](http://stackoverflow.com/questions/23149093/create-a-wacom-like-linux-uinput-device-for-work-with-touchscreen-and-pen).
 A week and 100 reputation points bounty I got [an 
 answer](http://stackoverflow.com/a/23311940/242826).
 
@@ -138,14 +138,14 @@ sending. Fair enough.
 
 ### Combining input
 
-At this point I understood mostly how the input subsystem works, all I had to do 
+At this point I mostly understood how the input subsystem works, all I had to do 
 is read `struct input_event`s from a file and reuse them.
 
 ~~~c
 while(read(touchscreen_fd, &event, sizeof(struct input_event)) > 0) {
   if (event.type == EV_ABS) {
     if (event.code == ABS_X || event.code == ABS_Y) {
-      uinput->uinput_write_event(uinput_fd, &event);
+      uinput_write_event(uinput_fd, &event);
     }
   }
 }
@@ -206,9 +206,9 @@ when the stylus reported changes. This was due to *libgato*'s architecture, and
 was way too slow.
 
 I decided I want to get rid of *libgato* and write it from scratch, as *libgato* 
-was using *[Qt](http://qt-project.org)* and was relying heavily on it's 
-SLOT/SIGNAL mechanism, which made it harder for me to add the code I wanted, 
-where I wanted.
+was using [*Qt*](http://qt-project.org) and was relying heavily on [its 
+SLOT/SIGNAL mechanism](http://qt-project.org/doc/qt-4.8/signalsandslots.html), 
+which made it harder for me to add the code I wanted, where I wanted.
 
 At first, I spent a while trying to flatten *libgato* and get only the relevant 
 code out, but it didn't play out so well.
@@ -216,9 +216,10 @@ code out, but it didn't play out so well.
 I tried writing it from scratch, turns out it's quite difficult. Tried Python, 
 still harder than I wanted.
 
-I even tried taking code from *[BlueZ](http://www.bluez.org)*, which [seemed 
-perfect](http://git.kernel.org/cgit/bluetooth/bluez.git/tree/attrib/interactive.c), 
-but I had no idea how to extract it out and ended up making a mess.
+I even tried taking [code from 
+*BlueZ*](http://git.kernel.org/cgit/bluetooth/bluez.git/tree/attrib/interactive.c), 
+which seemed perfect but I had no idea how to extract it out and ended up making 
+a mess.
 
 Eventually, I ran into a [GitHub 
 repository](https://github.com/IanHarvey/bluepy) by [Ian 
@@ -232,9 +233,9 @@ loop](https://developer.gnome.org/glib/2.28/glib-The-Main-Event-Loop.html), I
 finally managed to get events from both devices without any stuttering or 
 noticeable jumps or delays.
 
-Everything finally worked as I wanted.
+Everything finally worked as I wanted. Time to start painting!
 
-### Future
+### Future work
 
 At the time of writing this, everything in the code is hard-coded.
 
