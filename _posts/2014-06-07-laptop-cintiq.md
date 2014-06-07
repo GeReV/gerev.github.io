@@ -199,8 +199,8 @@ Changed the code so it sends a `BTN_TOOL_PEN` at the same times, and it worked!
 
 ~~~c
 if (event->type == EV_KEY) {
-  // In the final result, the following if is commented out, as it worked 
-  correctly as-is.
+  // In the final result, the following if is commented out, as it worked
+  // correctly as-is.
   if (event->code == BTN_TOUCH) {
     event->code = BTN_TOOL_PEN;
   }
