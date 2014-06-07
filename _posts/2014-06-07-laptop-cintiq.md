@@ -196,6 +196,19 @@ I checked again, and my touchscreen did the exact same thing, only it said
 `BTN_TOUCH` instead, and I ignored it.
 
 Changed the code so it sends a `BTN_TOOL_PEN` at the same times, and it worked!  
+
+~~~c
+if (event->type == EV_KEY) {
+  // In the final result, the following if is commented out, as it worked 
+  correctly as-is.
+  if (event->code == BTN_TOUCH) {
+    event->code = BTN_TOOL_PEN;
+  }
+
+  uinput_write_event(&uinfo, event);
+}
+~~~
+
 After nearly six months of playing with this on-and-off, it finally worked!
 
 ### Refactoring
