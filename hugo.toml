@@ -1,0 +1,77 @@
+baseURL = 'https://gerev.github.io/'
+languageCode = 'en-us'
+title = "GeReV's Thoughts"
+theme = "hugo-theme-m10c"
+
+[pagination]
+  pagerSize = 8
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  #[[menu.main]]
+  #  identifier = "about"
+  #  name = "About"
+  #  url = "/about/"
+  #  weight = 3
+
+[module]
+  [[module.imports]]
+    path = 'github.com/hugomods/gravatar'
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-8459CWCMM5'
+  [services.disqus]
+    shortname = 'gerev'
+
+[params]
+  author = "Amir Grozki"
+  description = "The online portfolio of Amir Grozki"
+  menu_item_separator = " - "
+  [params.gravatar]
+    default = 'mp'
+  [[params.social]]
+    icon = "brand-github"
+    name = "Github"
+    url = "https://github.com/GeReV"
+  [[params.social]]
+    icon = "brand-linkedin"
+    name = "Linkedin"
+    url = "http://il.linkedin.com/pub/amir-grozki/66/230/61/"
+  [[params.social]]
+    icon = "brand-stackexchange"
+    name = "StackExchange"
+    url = "http://stackexchange.com/users/87597/gerev"
+
+  # Default theme
+  # [params.style]
+  #   darkestColor = "#242930"
+  #   darkColor = "#353b43"
+  #   lightColor = "#afbac4"
+  #   lightestColor = "#ffffff"
+  #   primaryColor = "#57cc8a"
+
+  # Green theme
+  # [params.style]
+  #   darkestColor = "#315659"
+  #   darkColor = "#253031"
+  #   lightColor = "#96a879"
+  #   lightestColor = "#fff"
+  #   primaryColor = "#dad865"
+
+  # Red theme
+  # [params.style]
+  #   darkestColor = "#d35050"
+  #   darkColor = "#212121"
+  #   lightColor = "#d6d6d6"
+  #   lightestColor = "#d3d3d3"
+  #   primaryColor = "#ffffff"
