@@ -153,7 +153,7 @@ while(read(touchscreen_fd, &event, sizeof(struct input_event)) > 0) {
 
 I found the touchscreen's event file:
 
-~~~
+~~~bash
 cat /proc/bus/input/devices
 ~~~
 
