@@ -67,7 +67,7 @@ see how CPU registers and memory changed over time.
 The final breakthrough came once I learned of the overlay system used by the game, Borland's VROOMM overlay manager, and finding this brilliant piece of work: [DEVROOMM by Nancy Aurum](https://github.com/NancyAurum/devroomm). 
 This is a decompilation of that overlay manager, which helped me finally understand how it worked and why I was seeing the CPU jumping all over the place.
 
-Once I understood everything, I could write a Ghidra script that would finally give me a proper executable that can be statically analyzed, and I've been reversing it ever since (aside from [one long break](https://factorio.com/space-age/content).
+Once I understood everything, I could write a Ghidra script that would finally give me a proper executable that can be statically analyzed, and I've been reversing it ever since (aside from [one long break](https://factorio.com/space-age/content)).
 
 The next post in this series will cover the process described above in more detail.
 
