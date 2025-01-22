@@ -1,2 +1,4 @@
 github.com/hugomods/gravatar v0.2.0 h1:642HNhGN7Mw7qefNcUFJKzLoT2zJKt4IQkrS53mIUfA=
 github.com/hugomods/gravatar v0.2.0/go.mod h1:oATWuh5u2XUK/ZKzOD0VEP5I/TZfVZwplTyhT61Q4Fc=
+github.com/hugomods/shortcodes v0.24.0 h1:+on4M5WuqmczQ0mXA0Ec4PZApV0UbH+YHaLC5MVobyo=
+github.com/hugomods/shortcodes v0.24.0/go.mod h1:EnVopbZMNI/HeteM3Lp3phBTCRLvPSe7l142qhRFFPY=
