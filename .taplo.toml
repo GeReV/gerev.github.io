@@ -1,0 +1,7 @@
+include = [".taplo.toml", "hugo.toml"]
+
+[formatting]
+align_entries = true
+reorder_keys = true
+indent_entries = true
+indent_tables = true
